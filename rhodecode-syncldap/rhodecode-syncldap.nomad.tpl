@@ -22,7 +22,7 @@ LDAP_BIND_PASSWORD="{{with secret "forge/rhodecode/ldap"}}{{.Data.data.bind_pass
 #LDAP_URL="{{with secret "forge/rhodecode/ldap"}}{{.Data.data.url}}{{end}}"
 RHODECODE_AUTH_TOKEN="{{with secret "forge/rhodecode/api"}}{{.Data.data.auth_token}}{{end}}"
 {{range service ("rhodecode-http") }}RHODECODE_API_URL="http://{{.Address}}:{{.Port}}/_admin/api"{{end}}
-{{range service ("ldap-forge") }}LDAP_URL="{{.Address}}"{{end}}
+{{range service ("ldap-forge") }}LDAP_URL="ldap://{{.Address}}:389"{{end}}
         EOH
         destination = "secrets/file.env"
         change_mode = "restart"
