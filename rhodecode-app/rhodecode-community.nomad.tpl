@@ -1068,7 +1068,7 @@ EOT
 						memory = 1024
 				}
 				service {
-						name = "$\u007BNOMAD_JOB_NAME\u007D"
+						name = "rhodecode-redis"
 						port = "redis"
 						check {
 								name         = "alive"
